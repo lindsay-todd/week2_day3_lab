@@ -27,9 +27,15 @@ class CustomerTest < MiniTest::Test
     end
 
     def test_buy_drink
-        @customer.buy_drink(@drink2)
+        @customer.buy_drink(@pub, @drink2)
         assert_equal(15.00, @customer.wallet())
-        # @pub.till_add(@drink2)
+        assert_equal(1005.00, @pub.till())
         assert_equal(2, @pub.drink_count())
     end
 end
+
+# def test_bear_can_take_fish_from_river
+#     @bear.take_fish_from_river(@river)
+#     assert_equal(1, @bear.food_count)
+#     assert_equal(2, @river.number_of_fishes)
+#   end

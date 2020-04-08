@@ -11,9 +11,19 @@ class Customer
         @wallet -= drink.price
     end
 
-    def buy_drink(drink)
+    def buy_drink(pub, drink)
         @wallet -= drink.price
-        # till_add(drink)
-        @drinks.delete(drink)
+        pub.till += drink.price
+        pub.reduce_drinks(drink)
+        pub.drink_count 
     end
 end
+
+# assert_equal(2, @pub.drink_count())
+
+# def take_fish_from_river(river)
+#     fish = river.get_fish()
+#     @food << fish if !fish.nil?
+#   end
+
+        # drink = pub.get_drink()
