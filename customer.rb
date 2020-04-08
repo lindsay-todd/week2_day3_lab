@@ -1,10 +1,12 @@
 class Customer
 
-    attr_accessor :name, :wallet, :drink
+    attr_accessor :name, :wallet, :age, :drunkenness, :drink
 
-    def initialize(name, wallet)
+    def initialize(name, wallet, age, drunkenness)
         @name = name
         @wallet = wallet
+        @age = age
+        @drunkenness = drunkenness
     end
 
     def wallet_money(drink)
@@ -15,15 +17,7 @@ class Customer
         @wallet -= drink.price
         pub.till += drink.price
         pub.reduce_drinks(drink)
-        pub.drink_count 
+        pub.drink_count
+        @drunkenness += drink.alcohol_level   
     end
 end
-
-# assert_equal(2, @pub.drink_count())
-
-# def take_fish_from_river(river)
-#     fish = river.get_fish()
-#     @food << fish if !fish.nil?
-#   end
-
-        # drink = pub.get_drink()

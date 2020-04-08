@@ -9,10 +9,10 @@ require_relative('../pub')
 class CustomerTest < MiniTest::Test
 
     def setup
-        @customer = Customer.new("Marvin", 20)
-        @drink1 = Drink.new("Beer", 3.50)
-        @drink2 = Drink.new("Wine", 5.00)
-        @drink3 = Drink.new("Whisky", 4.50)
+        @customer = Customer.new("Marvin", 20, 45, 50)
+        @drink1 = Drink.new("Beer", 3.50, 5)
+        @drink2 = Drink.new("Wine", 5.00, 5)
+        @drink3 = Drink.new("Whisky", 4.50, 10)
         @drink = [@drink1, @drink2, @drink3]
         @pub = Pub.new("Red Lion", 1000, @drink)
     end
@@ -32,10 +32,11 @@ class CustomerTest < MiniTest::Test
         assert_equal(1005.00, @pub.till())
         assert_equal(2, @pub.drink_count())
     end
-end
+    
+    def test_customer_drunkenness
+        @customer.buy_drink(@pub, @drink3)
+        assert_equal(60, @customer.drunkenness())
+    end
 
-# def test_bear_can_take_fish_from_river
-#     @bear.take_fish_from_river(@river)
-#     assert_equal(1, @bear.food_count)
-#     assert_equal(2, @river.number_of_fishes)
-#   end
+
+end

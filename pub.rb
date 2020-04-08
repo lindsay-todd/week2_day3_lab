@@ -19,4 +19,17 @@ class Pub
     def reduce_drinks(drink)
         @drinks.delete(drink)
     end
+
+    def age_check(customer)
+        if customer.age >= 18
+            return true
+        end
+    end
+
+    def check_drunkenness(customer)
+        if customer.drunkenness > 70
+            return true
+        end
+    end
+
 end
