@@ -9,9 +9,9 @@ require_relative('../pub')
 class PubTest < MiniTest::Test
 
     def setup
-        @drink1 = ["Beer", 3.50]
-        @drink2 = ["Wine", 5.00]
-        @drink3 = ["Whisky", 4.50]
+        @drink1 = Drink.new("Beer", 3.50)
+        @drink2 = Drink.new("Wine", 5.00)
+        @drink3 = Drink.new("Whisky", 4.50)
         @drink = [@drink1, @drink2, @drink3]
         @pub = Pub.new("Red Lion", 1000, @drink)
     end

@@ -1,6 +1,6 @@
 class Pub
 
-    attr_accessor :name, :till, :drink
+    attr_reader :name, :till, :drink
 
     def initialize(name, till, drink)
         @name = name
