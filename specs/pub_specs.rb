@@ -25,6 +25,12 @@ class PubTest < MiniTest::Test
     end
 
     def test_add_money_to_till
-        assert_equal(1005.00, @pub.till_add(@drink2))
+        @pub.till_add(@drink2)
+        assert_equal(1005.00, @pub.till)
+    end
+
+    def test_reduce_number_of_drinks
+        @pub.reduce_drinks(@drink2)
+        assert_equal(2, @pub.drink_count())
     end
 end

@@ -1,6 +1,6 @@
 class Pub
 
-    attr_reader :name, :till, :drink
+    attr_accessor :name, :till, :drink
 
     def initialize(name, till, drink)
         @name = name
@@ -14,5 +14,9 @@ class Pub
 
     def till_add(drink)
         @till += drink.price
+    end
+
+    def reduce_drinks(drink)
+        @drinks.delete(drink)
     end
 end
