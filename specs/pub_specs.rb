@@ -9,14 +9,22 @@ require_relative('../pub')
 class PubTest < MiniTest::Test
 
     def setup
-        @pub = Pub.new("Red Lion", 1000)
-        @drink = [@drink1, @drink2, @drink3]
         @drink1 = ["Beer", 3.50]
         @drink2 = ["Wine", 5.00]
         @drink3 = ["Whisky", 4.50]
+        @drink = [@drink1, @drink2, @drink3]
+        @pub = Pub.new("Red Lion", 1000, @drink)
     end
 
     def test_name
         assert_equal("Red Lion", @pub.name)
+    end
+
+    def test_number_of_drinks
+        assert_equal(3, @pub.drink_count())
+    end
+
+    def test_add_money_to_till
+        assert_equal(1005.00, @pub.till_add(@drink2))
     end
 end
